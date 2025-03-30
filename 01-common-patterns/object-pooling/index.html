@@ -1255,9 +1255,33 @@
 <span class="p">}</span>
 </code></pre></div>
 </details>
-<div class="highlight"><pre><span></span><code>BenchmarkWithoutPooling-14       1692014               705.4 ns/op          8192 B/op          1 allocs/op
-BenchmarkWithPooling-14         160440506                7.455 ns/op           0 B/op          0 allocs/op
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>Iterations</th>
+<th>Time per op (ns)</th>
+<th>Bytes per op</th>
+<th>Allocs per op</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BenchmarkWithoutPooling-14</td>
+<td>1,692,014</td>
+<td>705.4</td>
+<td>8,192</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BenchmarkWithPooling-14</td>
+<td>160,440,506</td>
+<td>7.455</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <p>The benchmark results highlight the performance and memory usage differences between direct allocations and object pooling. The <code>BenchmarkWithoutPooling</code> function demonstrates higher execution time and memory consumption due to frequent heap allocations, resulting in increased garbage collection cycles. A nonzero allocation count confirms that each iteration incurs a heap allocation, contributing to GC overhead and slower performance.</p>
 <p>The memory allocation per operation appears larger than expected. Although the struct <code>Data</code> contains a <code>[1024]int</code> array, which is 4 KB (assuming <code>int</code> is 4 bytes on the architecture used), the actual allocated memory is <strong>8192 B/op</strong>. This discrepancy is due to Go’s memory allocation strategy, where the allocator efficiently rounds up allocations to fit into memory blocks. In many cases, Go’s runtime aligns struct allocations to the nearest power-of-two boundary, which may result in higher memory usage than the raw struct size.</p>
 <h2 id="when-should-you-use-syncpool">When Should You Use <code>sync.Pool</code>?<a class="headerlink" href="#when-should-you-use-syncpool" title="Permanent link">&para;</a></h2>
@@ -1295,7 +1319,7 @@ BenchmarkWithPooling-14         160440506                7.455 ns/op           0
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 27, 2025 12:56:16">March 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 30, 2025 07:00:29">March 30, 2025</span>
   </span>
 
     

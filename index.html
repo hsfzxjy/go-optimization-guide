@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Patterns and Techniques for Writing High-Performance Applications with Go">
+      
       
       
         <link rel="canonical" href="https://goperf.dev/">
@@ -14,6 +16,9 @@
       
         <link rel="next" href="01-common-patterns/">
       
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="feed_rss_updated.xml">
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
@@ -76,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#go-optimization-guide-patterns-and-techniques-for-high-performance-applications" class="md-skip">
+        <a href="#patterns-and-techniques-for-writing-high-performance-applications-with-go" class="md-skip">
           Skip to content
         </a>
       
@@ -313,9 +318,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#high-performance-networking-in-go-working-title" class="md-nav__link">
+  <a href="#high-performance-networking-in-go" class="md-nav__link">
     <span class="md-ellipsis">
-      High-Performance Networking in Go (working title)
+      High-Performance Networking in Go
     </span>
   </a>
   
@@ -1049,9 +1054,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#high-performance-networking-in-go-working-title" class="md-nav__link">
+  <a href="#high-performance-networking-in-go" class="md-nav__link">
     <span class="md-ellipsis">
-      High-Performance Networking in Go (working title)
+      High-Performance Networking in Go
     </span>
   </a>
   
@@ -1090,10 +1095,10 @@
   
 
 
-<h1 id="go-optimization-guide-patterns-and-techniques-for-high-performance-applications">Go Optimization Guide: Patterns and Techniques for High-Performance Applications<a class="headerlink" href="#go-optimization-guide-patterns-and-techniques-for-high-performance-applications" title="Permanent link">&para;</a></h1>
+<h1 id="patterns-and-techniques-for-writing-high-performance-applications-with-go">Patterns and Techniques for Writing High-Performance Applications with Go<a class="headerlink" href="#patterns-and-techniques-for-writing-high-performance-applications-with-go" title="Permanent link">&para;</a></h1>
 <p>The <strong>Go App Optimization Series</strong> is a collection of technical articles aimed at helping developers write faster, more efficient Go applications. Whether you're building high-throughput APIs, microservices, or distributed systems, this series offers practical patterns, real-world use cases, and low-level performance insights to guide your optimization efforts.</p>
 <p>While Go doesn’t expose as many knobs for performance tuning as languages like C++ or Rust, it still provides <strong>plenty of opportunities</strong> to make your applications significantly faster. From memory reuse and allocation control to efficient networking and concurrency patterns, Go offers a pragmatic set of tools for writing high-performance code.</p>
-<p>We focus on <strong>concrete techniques</strong> you can apply immediately—covering everything from core language features to advanced networking strategies.</p>
+<p>We focus on <strong>concrete techniques</strong> with <strong>mesurable impact</strong> you can apply immediately—covering everything from core language features to advanced networking strategies.</p>
 <h2 id="whats-covered-so-far">📌 What’s Covered So Far<a class="headerlink" href="#whats-covered-so-far" title="Permanent link">&para;</a></h2>
 <h3 id="common-go-patterns-for-performance"><a href="01-common-patterns/">Common Go Patterns for Performance</a><a class="headerlink" href="#common-go-patterns-for-performance" title="Permanent link">&para;</a></h3>
 <p>In this first article, we explore a curated set of high-impact performance patterns every Go developer should know:</p>
@@ -1108,19 +1113,16 @@
 <p>Each pattern is grounded in practical use cases, with benchmarks and examples you can copy into your own codebase.</p>
 <hr />
 <h2 id="whats-coming-next">🔜 What’s Coming Next<a class="headerlink" href="#whats-coming-next" title="Permanent link">&para;</a></h2>
-<h3 id="high-performance-networking-in-go-working-title">High-Performance Networking in Go <em>(working title)</em><a class="headerlink" href="#high-performance-networking-in-go-working-title" title="Permanent link">&para;</a></h3>
+<h3 id="high-performance-networking-in-go">High-Performance Networking in Go<a class="headerlink" href="#high-performance-networking-in-go" title="Permanent link">&para;</a></h3>
 <p>In our upcoming deep dive into networking, we'll focus on building high-throughput network services with Go’s standard library and beyond. This includes:</p>
 <ul>
 <li>Efficient use of <code>net/http</code> and <code>net.Conn</code></li>
-<li>Reusing buffers and minimizing GC pressure</li>
 <li>Managing large volumes of concurrent connections</li>
 <li>Performance tuning with epoll/kqueue and <code>GOMAXPROCS</code></li>
 <li>Load testing techniques and bottleneck diagnostics</li>
+<li>TBD...</li>
 </ul>
 <p>We'll also explore when to drop down to lower-level libraries like <code>fasthttp</code>, and how to balance performance with maintainability.</p>
-<blockquote>
-<p>📖 <em>Want to suggest a better title for this section? We're considering alternatives like "Go Networking for Speed" or "Scaling Go Network Services."</em></p>
-</blockquote>
 <hr />
 <h2 id="who-this-is-for">🎯 Who This Is For<a class="headerlink" href="#who-this-is-for" title="Permanent link">&para;</a></h2>
 <p>This series is ideal for:</p>
@@ -1152,7 +1154,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 29, 2025 11:55:14">March 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 30, 2025 07:35:10">March 30, 2025</span>
   </span>
 
     
